@@ -1,7 +1,7 @@
 var express = require('express');
 var fs = require('fs');
 var path = require('path');
-var yelp = require('./yelpRequest');
+var yelp = require('./yelpHandler');
 var utils = require('./utils');
 var app = express();
 

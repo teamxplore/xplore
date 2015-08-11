@@ -9,11 +9,9 @@ module.exports = {
     var oldPath = path.parse(oldUrl.pathname);
     // set new base in oldPath to be o.jpg
     oldPath.base = 'o.jpg';
-    // console.log(oldPath);
     // set new path in oldUrl
     oldUrl.pathname = path.format(oldPath);
     // return new url
-    console.log(oldUrl);
     return url.format(oldUrl);
   },
 
