@@ -1,5 +1,6 @@
 angular.module('uberxplore', [
   'uberxplore.itineraryList',
+  'uberxplore.explore',
   'uberxplore.locations',
   'uberxplore.services',
   'ui.router'
@@ -17,7 +18,7 @@ angular.module('uberxplore', [
     .state('explore', {
       url: '/explore',
       templateUrl:'app/explore/explore.html',
-      // controller: 'ExploreController'
+      controller: 'ExploreController'
     })
     .state('list', {
       url: '/list',
