@@ -1,0 +1,7 @@
+<h1>Itinerary (List View)</h1>
+<div ng-repeat="item in locations" ng-click="select()">
+  <h3>{{ item.name }}</h3>
+</div>
+
+<!-- Return to Explore state to select more options -->
+<a ui-sref="uberxplore.explore">Explore</a>
