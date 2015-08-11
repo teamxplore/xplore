@@ -3,13 +3,17 @@ var fs = require('fs');
 var path = require('path');
 var yelp = require('./yelpHandler');
 var utils = require('./utils');
+var uber = require('./uber/uberHandler.js');
+
 var app = express();
 
 app.use(express.static(__dirname + "/../client"));
 
-var server = app.listen(3000, function () {
+var port = process.env.PORT || 8000;
+var server = app.listen(port, function () {
   var host = server.address().address;
   var port = server.address().port;
+  console.log('Listening to port '+port);
 });
 
 var searchParams = {
@@ -48,3 +52,13 @@ app.get('/search', function(req, res) {
 //   console.log(error);
 //   console.log(data);
 // });
+
+var uberRouter = express.Router();
+uberRouter.get('/products', uber.getProducts);
+uberRouter.get('/price', uber.getPriceEstimates);
+uberRouter.get('/time', uber.getTimeEstimates);
+
+app.use('/uber', uberRouter);
+
+// exports
+module.exports = app;

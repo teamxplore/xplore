@@ -1,0 +1,17 @@
+{
+  "name": "uberxplore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3",
+    "passport": "^0.2.2",
+    "passport-oauth": "^1.0.0",
+    "querystring": "^0.2.0",
+    "request": "^2.60.0",
+    "yelp": "^0.2.0"
+  }
+}
