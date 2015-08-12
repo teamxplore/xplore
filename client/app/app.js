@@ -3,6 +3,7 @@ angular.module('uberxplore', [
   'uberxplore.explore',
   'uberxplore.locations',
   'uberxplore.services',
+  'ngTouch',
   'ui.router'
 ])
 

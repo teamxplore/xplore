@@ -13,6 +13,15 @@ angular.module('uberxplore.locations', [])
   // });
 
   locations.push({
+    "name":"Discover Walks",
+    "imgUrl":"http://s3-media4.fl.yelpcdn.com/bphoto/8ZcN-JDxU6ixJFsR1UjC6w/o.jpg",
+    "address":["1 rue Thérèse","Palais Royal/Musée du Louvre","75001 Paris","France"],
+    "description":"Discover Walks is an incredible way to see Paris! As most reviewers have posted, once you catch the bug, you can't do just one! They are quite addicting!...",
+    "reviews":14,
+    "ratingUrl":"http://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png"
+  });
+
+  locations.push({
     "name":"Pont de l'Archevêché",
     "imgUrl":"http://s3-media2.fl.yelpcdn.com/bphoto/KNWaCtbZDO3Lrwpokecbcg/o.jpg",
     "address":["Pont de l'Archevêché","Notre Dame De Paris","75005 Paris","France"],
