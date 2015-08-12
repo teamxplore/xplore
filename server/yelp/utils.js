@@ -8,7 +8,7 @@ module.exports = {
     var oldUrl = url.parse(address);
     var oldPath = path.parse(oldUrl.pathname);
     // set new base in oldPath to be o.jpg
-    oldPath.base = 'o.jpg';
+    oldPath.base = 'l.jpg';
     // set new path in oldUrl
     oldUrl.pathname = path.format(oldPath);
     // return new url

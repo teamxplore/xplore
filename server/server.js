@@ -17,8 +17,9 @@ app.use(express.static(__dirname + "/../client"));
 var searchParams = {
   term: 'landmarks',
   sort: 2,
-  limit: 5,
-  location: 'Paris, France'
+  limit: 20,
+  // location: 'Paris, France'
+  ll: '48.858370, 2.294481'
 };
 
 // app.get('/url', function(req, res) {

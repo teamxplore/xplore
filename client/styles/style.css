@@ -16,7 +16,17 @@ body {
 }
 
 a {
-  font-size: 1.5em;
+  color: #06ACC9;
+}
+
+.heading {
+  padding-left: 4px;
+  font-size: 3em;
+}
+
+.spinner {
+  text-align: center;
+  margin: 15px auto;
 }
 
 .explore-image {
@@ -31,7 +41,7 @@ a {
 }
 
 .image {
-  height: 350px;
+  height: 300px;
   overflow: hidden;
 }
 
@@ -43,6 +53,8 @@ a {
 .description {
   font-size: 1.3em;
   text-align: left;
+  padding-left: 4px;
+  padding-right: 4px;
 }
 
 .reviews {
@@ -50,10 +62,20 @@ a {
   font-weight: bold;
 }
 
+.distance {
+  font-size: 1.5em;
+}
+
 .address {
   font-size: 1.1em;
 }
 
+.explore-footer {
+  width: 33.33333333%;
+  float: left;
+  text-align: center;
+  font-size: 1.5em;
+}
 /* Auth */
 
 .auth {
