@@ -54,11 +54,19 @@ app.get('/search', function(req, res) {
 var uberRouter = express.Router();
 uberRouter.get('/auth', uber.auth);
 uberRouter.get('/auth/callback', uber.authCallback);
-uberRouter.get('/isauth', uber.isAuth);
+uberRouter.get('/isauth', uber.isAuth, uber.ok);
 uberRouter.get('/products', uber.getProducts);
 uberRouter.get('/price', uber.getPriceEstimates);
 uberRouter.get('/time', uber.getTimeEstimates);
+
+// check for OAuth for all routes to requests
+uberRouter.use('/requests', uber.isAuth);
+uberRouter.post('/requests/estimate', uber.getRideEstimate);
 uberRouter.post('/requests', uber.requestRide);
+uberRouter.delete('/requests/', uber.cancelRide);
+uberRouter.get('/requests/details', uber.getRideDetails);
+uberRouter.get('/requests/map', uber.getRideMap);
+uberRouter.get('/requests/receipt', uber.getRideReceipt);
 app.use('/uber', uberRouter);
 
 var port = process.env.PORT || 1337;
