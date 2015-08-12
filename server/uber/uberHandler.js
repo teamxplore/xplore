@@ -24,9 +24,14 @@ var endpoints = {
   products: 'v1/products',
   priceEstimates: 'v1/estimates/price',
   timeEstimates: 'v1/estimates/time',
-  requests: 'v1/requests'
+  requests: 'v1/requests',
+  requestEstimate: 'v1/requests/estimate'
 };
 
+var headers = {
+  Authorization: 'Bearer '+uber.accessToken,
+  'Content-Type': 'application/json'
+};
 
 passport.use('uber', new OAuth2Strategy({
   authorizationURL: uber.authorize_url,
@@ -38,29 +43,30 @@ passport.use('uber', new OAuth2Strategy({
 function(accessToken, refreshToken, profile, done) {
   uber.accessToken = accessToken;
   uber.refreshToken = refreshToken;
+  headers.Authorization = 'Bearer '+accessToken;
   console.log(uber.accessToken);
   console.log('uber authenticated');
   done();
 }));
 
-uber.auth = function(req, res, next) {
-  return passport.authenticate('uber', {scope: 'profile request'})(req, res, next);
-};
+uber.auth = passport.authenticate('uber', {scope: 'profile request'});
 
-uber.authCallback = function(req, res, next) {
-  return passport.authenticate('uber', {
-    successRedirect: '/',
-    failureRedirect: '/'
-  })(req, res, next);
-};
+uber.authCallback = passport.authenticate('uber', {
+  successRedirect: '/',
+  failureRedirect: '/'
+});
 
 uber.isAuth = function(req, res, next) {
-  console.log(uber.accessToken);
   if( !!uber.accessToken ) {
-    res.status(200).send('Authenticated');
+    next();
   } else {
+    console.log('Not authenticated');
     res.status(401).send('Not authenticated');
   }
+};
+
+uber.ok = function(req, res, next) {
+  res.status(200).send('OK');
 };
 
 uber.getProducts = function(req, res, next) {
@@ -121,20 +127,14 @@ uber.getTimeEstimates = function(req, res, next) {
   });
 };
 
-uber.requestRide = function(req, res, next) {
-  if( !uber.hasOwnProperty('accessToken') ) {
-    console.log('no access token');
-    res.send({
-      error: 'Not authenticated'
-    });
-  }
+// -------------------------
+// OAuth required for below
+// -------------------------
 
+uber.requestRide = function(req, res, next) {
   request.post({
     url: uber.base_url + endpoints.requests,
-    headers: {
-      'Authorization': 'Bearer '+uber.accessToken,
-      'Content-Type': 'application/json'
-    },
+    headers: headers,
     json: req.body.params
   }, function(err, data, results) {
     if( err ) throw(err);
@@ -142,5 +142,65 @@ uber.requestRide = function(req, res, next) {
     res.send(results);
   });
 };
+
+uber.getRideEstimate = function(req, res, next) {
+  request.post({
+    url: uber.base_url + endpoints.requestEstimate,
+    headers: headers,
+    json: req.body.params
+  }, function(err, data, results) {
+    if( err ) throw err;
+    console.log(results);
+    res.send(results);
+  });
+};
+
+uber.getRideDetails = function(req, res, next) {
+  var requestId = url.parse(req.url, true).query.request_id;
+  request.get({
+    url: uber.base_url + endpoints.requests + '/' + requestId,
+    headers: headers,
+    json: true
+  }, function(err, data, results) {
+    if( err ) throw(err);
+    res.send(results);
+  });
+};
+
+uber.cancelRide = function(req, res, next) {
+  var requestId = url.parse(req.url, true).query.request_id;
+  request.del({
+    url: uber.base_url + endpoints.requests + '/' + requestId,
+    headers: headers,
+  }, function(err, data, results) {
+    if( err ) throw err;
+    res.send(results);
+  });
+};
+
+uber.getRideMap = function(req, res, next) {
+  var requestId = url.parse(req.url, true).query.request_id;
+  request.get({
+    url: uber.base_url + endpoints.requests + '/' + requestId + '/map',
+    headers: headers,
+    json: true
+  }, function(err, data, results) {
+    if( err ) throw(err);
+    res.send(results);
+  });
+};
+
+uber.getRideReceipt = function(req, res, next) {
+  var requestId = url.parse(req.url, true).query.request_id;
+  request.get({
+    url: uber.base_url + endpoints.requests + '/' + requestId + '/receipt',
+    headers: headers,
+    json: true
+  }, function(err, data, results) {
+    if( err ) throw(err);
+    res.send(results);
+  });
+};
+
 
 module.exports = uber;
