@@ -1,1 +1,20 @@
-<h1>explore</h1>
+<div ng-controller="ExploreController">
+  <h1>uberXplore</h1>
+
+  <div ng-repeat="item in locations" ng-swipe-right="prevEntry()" ng-swipe-left="nextEntry()" 
+    ng-hide="!isCurrentSlideIndex($index)" ng-class="{'currentIndex': isCurrentSlide($index)}">
+    <!-- <div ng-style="{'background-image':'url({{item.imgUrl}})'}" class="explore-image"><br><br><br><br><br><br></div> -->
+    <div class="explore-entry image"><img ng-src="{{ item.imgUrl }}" alt="Picture" class="explore-image"></div>
+    <div class="explore-entry name">{{ item.name }}</div>
+    <div class="explore-entry reviews">{{ item.reviews }} reviews</div>
+    <div class="explore-entry rating"><img ng-src="{{ item.ratingUrl }}" alt="Picture"></div>
+    <div class="explore-entry address">
+      <span ng-repeat="line in item.address">{{ line }} | </span>
+    </div>
+    <div class="explore-entry description">{{ item.description }}</div>
+
+  </div>
+
+  <!-- Go to ItineraryList view to check out itinerary so far -->
+  <p class="text-center"><a ui-sref="list">Itinerary</a></p>
+</div>

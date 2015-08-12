@@ -1,0 +1,56 @@
+@font-face {
+  font-family: 'Economica';
+  src: url('../assets/Economica-Regular-OTF.otf')
+        format('opentype');
+}
+
+@font-face {
+  font-family: 'Economica';
+  src: url('../assets/Economica-Bold-OTF.otf')
+        format('opentype');
+  font-weight: bold;
+}
+
+body {  
+  font-family: 'Economica';
+}
+
+a {
+  font-size: 1.5em;
+}
+
+.explore-image {
+  width: 100%;
+}
+
+.explore-entry {
+  text-align: center;
+  width: 100%;
+  font-family: 'Economica';
+  margin: 5px 0px;
+}
+
+.image {
+  height: 350px;
+  overflow: hidden;
+}
+
+.name {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 1.3em;
+  text-align: left;
+}
+
+.reviews {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.address {
+  font-size: 1.1em;
+}
+

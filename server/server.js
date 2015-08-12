@@ -3,8 +3,8 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 var fs = require('fs');
 var path = require('path');
-var yelp = require('./yelpHandler');
-var utils = require('./utils');
+var yelp = require('./yelp/yelpHandler.js');
+var utils = require('./yelp/utils.js');
 var uber = require('./uber/uberHandler.js');
 
 var app = express();
