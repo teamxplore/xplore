@@ -7,8 +7,6 @@ angular.module('uberxplore.explore', ['ngTouch'])
 
   var currentIndex = 0;
 
-  console.log($scope.locations.length); // code will run on load of explore.html
-
   // Show next on a swipe right
   $scope.nextEntry = function() {
     if (currentIndex < $scope.locations.length - 1) {
