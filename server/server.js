@@ -1,4 +1,6 @@
 var express = require('express');
+var bodyParser = require('body-parser');
+var cors = require('cors');
 var fs = require('fs');
 var path = require('path');
 var yelp = require('./yelpHandler');
@@ -7,14 +9,9 @@ var uber = require('./uber/uberHandler.js');
 
 var app = express();
 
+app.use(cors()); // allow CORS
+app.use(bodyParser.json()); // parse json into req.body
 app.use(express.static(__dirname + "/../client"));
-
-var port = process.env.PORT || 8000;
-var server = app.listen(port, function () {
-  var host = server.address().address;
-  var port = server.address().port;
-  console.log('Listening to port '+port);
-});
 
 var searchParams = {
   term: 'landmarks',
@@ -53,12 +50,18 @@ app.get('/search', function(req, res) {
 //   console.log(data);
 // });
 
+
 var uberRouter = express.Router();
+uberRouter.get('/auth', uber.auth);
+uberRouter.get('/auth/callback', uber.authCallback);
+uberRouter.get('/isauth', uber.isAuth);
 uberRouter.get('/products', uber.getProducts);
 uberRouter.get('/price', uber.getPriceEstimates);
 uberRouter.get('/time', uber.getTimeEstimates);
-
+uberRouter.post('/requests', uber.requestRide);
 app.use('/uber', uberRouter);
 
-// exports
-module.exports = app;
+var port = process.env.PORT || 1337;
+app.listen(port, function () {
+  console.log('Listening to port '+port);
+});

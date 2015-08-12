@@ -7,6 +7,7 @@
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.13.3",
+    "cors": "^2.7.1",
     "express": "^4.13.3",
     "passport": "^0.2.2",
     "passport-oauth": "^1.0.0",
