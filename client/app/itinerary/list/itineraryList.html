@@ -1,10 +1,17 @@
-<h1>Xplore</h1>
-<a class="map-link" ui-sref="map">Map</a>
+<div class="it-heading">xplore</div>
+
+<section class="location-list">
+<div class="tip" ng-hide="locations.length">
+<p>You haven't added anything to your itinerary yet!</p>
+<p>Click "Explore" to view popular local destinations and "Save" them here.</p>
+<p>Get a ride with Uber to any of them with just one click.</p>
+<p class="smiley">&#9786;</p>
+</div>
 <div class="location-container row" ng-repeat="location in locations" ng-click="select($index)"
       ng-class="{selected: selected === $index}">
   <div class="location-info">
     <h2>{{ location.name }}</h2>
-    <h4 class="location-distance">{{ convertDistance(location.distance) }} miles away</p>
+    <p class="location-distance">{{ convertDistance(location.distance) }} miles away</p>
   </div>
   <div class="location-options" ng-hide="selected !== $index">
     <div class="remove" ng-click="remove()">
@@ -15,8 +22,12 @@
     </div>
   </div>
 </div>
+</section>
 
 <!-- Return to Explore state to select more options -->
-<div class="explore-link-container">
-  <a class="explore-link" ui-sref="explore">Explore</a>
+<div class="it-footer-wrapper">
+  <div class="it-footer">
+    <div><a ui-sref='explore'>Explore</a></div>
+    <div><a ui-sref="map">Map</a></div>
+  </div>
 </div>
