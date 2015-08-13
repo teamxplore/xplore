@@ -9,7 +9,7 @@ angular.module('uberxplore.explore', ['ngTouch', 'ngAnimate'])
   $http.get('/search')
     .success(function(data) {
       $scope.isLoading = false;
-      console.log('success:',data);
+      // console.log('success:',data);
       $scope.exploreResults = data;
     })
     .catch(function(err) {
@@ -22,32 +22,37 @@ angular.module('uberxplore.explore', ['ngTouch', 'ngAnimate'])
   $scope.currentIndex = 0;
 
 
-  // Show next on a swipe right
+  // Show next on a swipe left
   $scope.nextEntry = function() {
-    // console.log('nextEntry()');
     if ($scope.currentIndex < $scope.exploreResults.length - 1) {
-      ++$scope.currentIndex;
+      $scope.currentIndex++;
     } else {
       $scope.currentIndex = 0;
     }
   };
 
-  // Show previous on a swipe left
+  // Show previous on a swipe right
   $scope.prevEntry = function() {
-    // console.log('prevEntry()');
     if ($scope.currentIndex > 0) {
-      --$scope.currentIndex;
-    }
-    else {
+      $scope.currentIndex--;
+    } else {
       $scope.currentIndex = $scope.exploreResults.length - 1;
     }
   };
 
-  $scope.removeFromView = function(index) {
-    $scope.exploreResults.splice(index, 1);
-  };
+  // $scope.removeFromView = function(index) {
+  //   // if index is the last element in the array, display the previous item
+  //   if (index === $scope.exploreResults.length -1) {
+  //     $scope.currentIndex--;
+  //   }
+  //   $scope.exploreResults.splice(index, 1);
+  // };
 
   $scope.addToItinerary = function(index) {
+    // if index is the last element in the array, display the previous item
+    if (index === $scope.exploreResults.length -1) {
+      $scope.currentIndex--;
+    }
     var item = $scope.exploreResults[index];
     if (Locations.indexOf(item)) {
       Locations.push(item);

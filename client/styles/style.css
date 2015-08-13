@@ -99,6 +99,7 @@ a {
 }
 
 .explore-footer {
+  color: #06ACC9;
   padding-top: 5px;
   padding-bottom: 5px;
   float: left;
@@ -109,22 +110,10 @@ a {
   overflow: hidden;
 }
 
-/* Animation */
 .explore-wrapper {
   overflow: hidden;
   width: 375px;
   height: 570px;
-}
-
-.animate-listing {
-  width: 375px;
-  display: inline-block;
-/*  white-space: nowrap;*/
-  animation: fadeInRight 0.3s ease 0.3s;
-}
-
-.animate-listing.ng-hide {
-  animation: fadeOutLeft 0.3s;
 }
 
 /* Auth */

@@ -19,7 +19,11 @@ var searchParams = {
   sort: 2,
   limit: 20,
   // location: 'Paris, France'
-  ll: '48.858370, 2.294481'
+  // ll: '48.858370,2.294481'
+  // location: 'London, England'
+  // ll: '51.507351,-0.127758'
+  // location: 'Rome, Italy'
+  ll: '41.902783,12.496366'
 };
 
 // app.get('/url', function(req, res) {

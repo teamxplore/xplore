@@ -4,7 +4,7 @@
 
   <div class="explore-wrapper" ng-show="!isLoading">
     <div ng-repeat="item in exploreResults" ng-swipe-right="prevEntry()" ng-swipe-left="nextEntry()" 
-      ng-hide="!isCurrentSlideIndex($index)" class="animate-listing">
+      ng-hide="!isCurrentSlideIndex($index)">
       <div class="explore-entry image"><img ng-src="{{ item.imgUrl }}" alt="Picture" class="explore-image"></div>
       <div class="explore-entry name">{{ item.name }}</div>
       <div class="explore-entry reviews">{{ item.reviews }} reviews</div>
@@ -19,8 +19,9 @@
   </div>
 
     <!-- Go to ItineraryList view to check out itinerary so far -->
-  <div class="explore-footer"><span id="remove" ng-click="removeFromView(currentIndex)">Remove</span></div>
+<!--   <div class="explore-footer"><span id="remove" ng-click="removeFromView(currentIndex)">Remove</span></div> -->
+  <div class="explore-footer"><span ng-click="">New Search</span></div>
   <div class="explore-footer"><a ui-sref="list">Itinerary</a></div>
-  <div class="explore-footer"><span id="add" ng-click="addToItinerary(currentIndex)">Add</span></div>
+  <div class="explore-footer"><span ng-click="addToItinerary(currentIndex)">Add</span></div>
 
 </div>
