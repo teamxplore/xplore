@@ -1,4 +1,4 @@
-angular.module('uberxplore.explore', ['ngTouch', 'ngAnimate'])
+angular.module('uberxplore.explore', ['ngTouch'])
 
 .controller('ExploreController', function($scope, $http, Locations) {
   // start with loading state being true, flip after Yelp results load
@@ -24,6 +24,7 @@ angular.module('uberxplore.explore', ['ngTouch', 'ngAnimate'])
 
   // Show next on a swipe right
   $scope.nextEntry = function() {
+    console.log('nextEntry()');
     if ($scope.currentIndex < $scope.exploreResults.length - 1) {
       $scope.currentIndex++;
     } else {
@@ -33,6 +34,7 @@ angular.module('uberxplore.explore', ['ngTouch', 'ngAnimate'])
 
   // Show previous on a swipe left
   $scope.prevEntry = function() {
+    console.log('prevEntry()');
     if ($scope.currentIndex > 0) {
       $scope.currentIndex--;
     }
@@ -43,13 +45,11 @@ angular.module('uberxplore.explore', ['ngTouch', 'ngAnimate'])
 
   $scope.removeFromView = function(index) {
     $scope.exploreResults.splice(index, 1);
-    console.log(Locations);
   };
 
   $scope.addToItinerary = function(index) {
     Locations.push($scope.exploreResults[index]);
     $scope.exploreResults.splice(index, 1);
-    console.log(Locations);
   };
 
   // converts meters from Yelp data to miles with 1 decimal place

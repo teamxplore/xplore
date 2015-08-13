@@ -5,7 +5,6 @@ angular.module('uberxplore', [
   'uberxplore.uber',
   'uberxplore.google',
   'ngTouch',
-  'ngAnimate',
   'ui.router'
 ])
 
