@@ -1,0 +1,17 @@
+<h1 class="map-title">Xplore</h1>
+<a class="list-link" ui-sref="list">List</a>
+<div class="map">
+<ui-gmap-google-map center='map.center' zoom='map.zoom'>
+  <ui-gmap-markers
+    models="markers"
+    fit="true"
+    click="markerClick"
+    coords="'coords'"
+    options="'options'">
+  </ui-gmap-markers>
+</ui-gmap-google-map>
+</div>
+
+<div class="explore-link-container">
+  <a class="explore-link" ui-sref="explore">Explore</a>
+</div>

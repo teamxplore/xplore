@@ -1,5 +1,6 @@
 angular.module('uberxplore', [
   'uberxplore.itineraryList',
+  'uberxplore.itineraryMap',
   'uberxplore.explore',
   'uberxplore.locations',
   'uberxplore.uber',
@@ -28,9 +29,9 @@ angular.module('uberxplore', [
       controller: 'ItineraryListController'
     })
     .state('map', {
-      // url: '/map',
-      // templateUrl:'app/itinerary/list/itineraryMap.html',
-      // controller: 'ItineraryMapController'
+      url: '/map',
+      templateUrl:'app/itinerary/map/itineraryMap.html',
+      controller: 'ItineraryMapController'
     });
 })
 .run(function ($rootScope, $window, $state, Uber) {
