@@ -199,3 +199,56 @@ a {
   bottom: 10px;
   text-align: center;
 }
+
+/* Itinerary Map */
+
+.map-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.map {
+  position: absolute;
+  top: 70px;
+  left: 0;
+}
+
+.angular-google-map-container {
+  height: 540px;
+  width: 375px;
+}
+
+.map-link-container {
+  box-sizing: border-box;
+  width: 100%;
+  position: absolute;
+  height: 47px;
+  bottom: 0;
+  border-top: 2px solid #06ACC9;
+}
+
+.map-link-container a {
+  text-align: center;
+  line-height: 2;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 100%;
+  width: 49.5%;
+  margin: 0;
+  padding: 0 20px;
+  background-color: white;
+}
+
+.map-link-container a:last-child {
+  border-left: 2px solid #06ACC9;
+}
+
+.list-link,
+.map-link {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 20px;
+}
