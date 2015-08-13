@@ -216,6 +216,10 @@ a {
   float: left;
 }
 
+.location-distance {
+  margin-top: -8px;
+}
+
 .location-options {
   float: right;
   padding-right: 20px;
@@ -318,4 +322,35 @@ a {
   right: 0;
   top: 0;
   margin: 20px;
+}
+
+/* Uber Modal */
+.uber-modal .modal-content {
+  min-height: 520px;
+  /* Format the modal window to fit within the screen */
+  margin-top: 75px;
+  margin-right: 17px;
+}
+
+.uber-title-container {
+  text-align: center;
+}
+
+.uber-title {
+  width: 300px;
+}
+.product-container {
+  overflow: auto;
+  margin-top: 10px;
+}
+
+.product-name {
+  float: left;
+  margin-left: 10px;
+}
+.product-info {
+  float: right;
+  margin-right: 10px;
+  margin-top: 10px;
+  text-align: center;;
 }
