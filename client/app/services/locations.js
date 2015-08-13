@@ -42,5 +42,5 @@ angular.module('uberxplore.locations', [])
   //   "ratingUrl":"http://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png"
   // });
   // Exporting this locations will make it consistent across all parts of the app
-  return locations
-})
+  return locations;
+});

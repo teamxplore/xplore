@@ -1,6 +1,6 @@
-angular.module('uberxplore.explore', ['ngTouch', 'ngAnimate'])
+angular.module('uberxplore.explore', ['ngTouch', 'ngAnimate', 'uberxplore.geocoords'])
 
-.controller('ExploreController', function($scope, $http, Locations) {
+.controller('ExploreController', function($scope, $http, Locations, Coords) {
 
   // starts out with newSearch boolean set to true
   // flip to false after a choice is made
@@ -10,19 +10,149 @@ angular.module('uberxplore.explore', ['ngTouch', 'ngAnimate'])
   $scope.isLoading = false;
   
   $scope.exploreResults = [];
-  // do a Yelp API call to set locations
-  $http.get('/search')
-    .success(function(data) {
-      $scope.isLoading = false;
-      // console.log('success:',data);
-      $scope.exploreResults = data;
-    })
-    .catch(function(err) {
-      console.log('error:',err);
-    })
-    .finally(function() {
-      $scope.isLoading = false;
+
+  $scope.search = function(searchType) {
+    // set isLoading to true and newSearch to false
+    $scope.newSearch = false;
+    $scope.isLoading = true;
+    // get geoLocation as a string and save coords into shared Coords factory
+    var geoCoords;
+    navigator.geolocation.getCurrentPosition(function(pos) {
+      geoCoords = pos.coords.latitude + ',' + pos.coords.longitude;
+      // this hardcodes our shared Coords as Rome, Italy
+      Coords.lat = 41.902783;
+      Coords.lng = 12.496366;
+      // this is the real version
+      // Coords.lat = pos.coords.latitude;
+      // Coords.lng = pos.coords.longitude;
     });
+    // see if it set our object correctly
+    console.log(Coords);
+    // make http POST request to server with geolocation
+    $http.post('/search', {term: searchType, limit: 20, sort: 2, ll: '41.902783,12.496366'}) // our version with hardcoded coordinates for Rome, Italy
+    // $http.post('/search', {term: searchType, limit: 20, sort: 2, ll: geoCoords})  This is the real version with actual geoCoords
+      .success(function(data) {
+        // $scope.isLoading = false;
+        console.log('success', data);
+        $scope.exploreResults = data;
+      })
+      .catch(function(err) {
+        console.log('error',err);
+      })
+      .finally(function() {
+        $scope.isLoading = false;
+      });
+  };
+
+  // $scope.searchLandmarks = function() {
+  //   // set isLoading to true and newSearch to false
+  //   $scope.isLoading = true;
+  //   $scope.newSearch = false;
+  //   // get geoLocation as a string
+  //   var geoCoords;
+  //   navigator.geolocation.getCurrentPosition(function(pos) {
+  //     geoCoords = pos.coords.latitude + ',' + pos.coords.longitude;
+  //   });
+  //   // make http POST request to server with geolocation
+  //   $http.post('/search*', {term: "", limit: 20, sort: 2, ll: geoCoords})
+  //     .success(function(data) {
+  //       // $scope.isLoading = false;
+  //       console.log('success', data);
+  //       $scope.exploreResults = data;
+  //     })
+  //     .catch(function(err) {
+  //       console.log('error',err);
+  //     })
+  //     .finally(function() {
+  //       $scope.isLoading = false;
+  //     });
+  // };
+
+  // $scope.searchShopping = function() {
+  //   // set isLoading to true and newSearch to false
+  //   $scope.isLoading = true;
+  //   $scope.newSearch = false;
+  //   // get geoLocation as a string
+  //   var geoCoords;
+  //   navigator.geolocation.getCurrentPosition(function(pos) {
+  //     geoCoords = pos.coords.latitude + ',' + pos.coords.longitude;
+  //   });
+  //   // make http POST request to server with geolocation
+  //   $http.post('/search*', {term: "", limit: 20, sort: 2, ll: geoCoords})
+  //     .success(function(data) {
+  //       // $scope.isLoading = false;
+  //       console.log('success', data);
+  //       $scope.exploreResults = data;
+  //     })
+  //     .catch(function(err) {
+  //       console.log('error',err);
+  //     })
+  //     .finally(function() {
+  //       $scope.isLoading = false;
+  //     });
+  // };
+
+  // $scope.searchRestaurants = function() {
+  //   // set isLoading to true and newSearch to false
+  //   $scope.isLoading = true;
+  //   $scope.newSearch = false;
+  //   // get geoLocation as a string
+  //   var geoCoords;
+  //   navigator.geolocation.getCurrentPosition(function(pos) {
+  //     geoCoords = pos.coords.latitude + ',' + pos.coords.longitude;
+  //   });
+  //   // make http POST request to server with geolocation
+  //   $http.post('/search*', {term: "", limit: 20, sort: 2, ll: geoCoords})
+  //     .success(function(data) {
+  //       // $scope.isLoading = false;
+  //       console.log('success', data);
+  //       $scope.exploreResults = data;
+  //     })
+  //     .catch(function(err) {
+  //       console.log('error',err);
+  //     })
+  //     .finally(function() {
+  //       $scope.isLoading = false;
+  //     });
+  // };
+
+  // $scope.searchBars = function() {
+  //   // set isLoading to true and newSearch to false
+  //   $scope.isLoading = true;
+  //   $scope.newSearch = false;
+  //   // get geoLocation as a string
+  //   var geoCoords;
+  //   navigator.geolocation.getCurrentPosition(function(pos) {
+  //     geoCoords = pos.coords.latitude + ',' + pos.coords.longitude;
+  //   });
+  //   // make http POST request to server with geolocation
+  //   $http.post('/search*', {term: "", limit: 20, sort: 2, ll: geoCoords})
+  //     .success(function(data) {
+  //       // $scope.isLoading = false;
+  //       console.log('success', data);
+  //       $scope.exploreResults = data;
+  //     })
+  //     .catch(function(err) {
+  //       console.log('error',err);
+  //     })
+  //     .finally(function() {
+  //       $scope.isLoading = false;
+  //     });
+  // };
+
+  // // do a Yelp API call to set locations
+  // $http.get('/search')
+  //   .success(function(data) {
+  //     $scope.isLoading = false;
+  //     // console.log('success:',data);
+  //     $scope.exploreResults = data;
+  //   })
+  //   .catch(function(err) {
+  //     console.log('error:',err);
+  //   })
+  //   .finally(function() {
+  //     $scope.isLoading = false;
+  //   });
 
   $scope.currentIndex = 0;
 
@@ -43,6 +173,12 @@ angular.module('uberxplore.explore', ['ngTouch', 'ngAnimate'])
     } else {
       $scope.currentIndex = $scope.exploreResults.length - 1;
     }
+  };
+
+  // on clicking New Search, we reset newSearch and isLoading booleans
+  $scope.reset = function() {
+    $scope.newSearch = true;
+    $scope.isLoading = false;
   };
 
   // $scope.removeFromView = function(index) {
