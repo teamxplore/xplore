@@ -11,7 +11,7 @@
   font-weight: bold;
 }
 
-body {  
+body {
   font-family: 'Economica';
 }
 
@@ -54,3 +54,46 @@ a {
   font-size: 1.1em;
 }
 
+/* Auth */
+
+.auth {
+  height: 667px;
+  width: 100%;
+  background: black url('../assets/xplore_landing.png') no-repeat top left;
+  background-size: 100%;
+  text-align: center;
+}
+
+.auth .title {
+  padding-top: 20px;
+  color: white;
+  font-size: 8em;
+  letter-spacing: 20px;
+  padding-left: 20px;
+}
+
+.sign-in {
+  color: white;
+  font-size: 2em;
+  border: 2px solid #06ACC9;
+  border-radius: 5px;
+  letter-spacing: 2px;
+  padding: 12px 24px 12px 26px; /* +2 to left to offset letter-spacing */
+}
+
+.sign-in:focus,
+.sign-in:active {
+  text-decoration: none;
+  color: white;
+}
+
+.auth .vertical {
+  position: fixed;
+  top: 85%;
+  width: 100%;
+}
+
+.auth .horizontal {
+  margin: 0 auto;
+  text-align: center;
+}
