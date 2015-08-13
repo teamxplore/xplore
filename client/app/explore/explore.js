@@ -8,6 +8,9 @@ angular.module('uberxplore.explore', ['ngTouch', 'ngAnimate', 'uberxplore.geocoo
   // start with loading state being false, flip to true while Yelp API call runs
   // flip back to false after yelp results are loaded
   $scope.isLoading = false;
+
+  // scope variable for Locations
+  $scope.Locations = Locations;
   
   $scope.exploreResults = [];
 
