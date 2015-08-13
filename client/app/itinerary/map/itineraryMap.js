@@ -10,6 +10,7 @@ angular.module('uberxplore.itineraryMap', [
 })
 .controller('ItineraryMapController', function($scope, Locations, uiGmapGoogleMapApi, Google) {
 
+  $scope.showMap = false;
   $scope.locations = Locations;
   $scope.markers = [];
   $scope.map = {
@@ -24,7 +25,6 @@ angular.module('uberxplore.itineraryMap', [
   uiGmapGoogleMapApi.then(function(maps) {
     userMarkerSetup();
     locationMarkersSetup();
-    console.log($scope.markers);
   });
 
   $scope.markerClick = function(gMarker, event, marker) {
@@ -55,6 +55,9 @@ angular.module('uberxplore.itineraryMap', [
   };
 
   var locationMarkersSetup = function() {
+    var count = $scope.locations.length; // number of locations to load
+    $scope.showMap = !count;
+
     $scope.locations.forEach(function(location, index) {
       var marker = {};
       marker.id = index + 1; // user is index 0
@@ -78,6 +81,7 @@ angular.module('uberxplore.itineraryMap', [
           longitude: coords.lng
         };
         $scope.markers.push(marker);
+        $scope.showMap = !--count; // set to true if count is 0
       }.bind(null, marker));
     });
   };

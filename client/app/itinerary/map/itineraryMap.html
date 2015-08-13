@@ -1,7 +1,10 @@
 <h1 class="map-title">Xplore</h1>
 <a class="list-link" ui-sref="list">List</a>
-<div class="map">
-<ui-gmap-google-map center='map.center' zoom='map.zoom' pan='true'>
+<div ng-if="showMap" class="map">
+<ui-gmap-google-map
+  center="map.center"
+  zoom="map.zoom"
+  pan="true">
   <ui-gmap-markers
     models="markers"
     fit="true"
