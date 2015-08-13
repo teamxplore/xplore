@@ -31,16 +31,6 @@ var shoppingArray = [];
 var restaurantsArray = [];
 var barsArray = [];
 
-// app.get('/search', function(req, res) {
-//   yelp.explore(searchParams, function(data) {
-//     var results = [];
-//     data.businesses.forEach(function(listing) {
-//       results.push(utils.makeExploreEntry(listing));
-//     });
-//     res.send(results);
-//   });
-// });
-
 app.post('/search', function(req, res) {
   var term = req.body.term;
   if (term === 'landmarks') {
