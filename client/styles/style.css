@@ -38,7 +38,7 @@ a {
   padding: 8px 25px 0px 25px;
   width: 150px;
   height: 150px;
-  border: 3px solid black;
+  border: 3px solid #06ACC9;
   border-radius: 10px;
   font-size: 1.9em;
   text-align: center;
@@ -50,7 +50,7 @@ a {
   padding: 8px 25px 0px 25px;
   width: 150px;
   height: 150px;
-  border: 3px solid black;
+  border: 3px solid #06ACC9;
   border-radius: 10px;
   font-size: 1.9em;
   text-align: center;
@@ -152,7 +152,6 @@ a {
 }
 
 .explore-footer {
-  color: #06ACC9;
   padding-top: 5px;
   padding-bottom: 5px;
   float: left;
@@ -161,6 +160,14 @@ a {
   width: 125px;
   height: 40px;
   overflow: hidden;
+}
+
+.disabled {
+  color: #888;
+}
+
+.enabled {
+  color: #06ACC9;
 }
 
 /* Auth */
