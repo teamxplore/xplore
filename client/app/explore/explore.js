@@ -1,8 +1,13 @@
 angular.module('uberxplore.explore', ['ngTouch', 'ngAnimate'])
 
 .controller('ExploreController', function($scope, $http, Locations) {
-  // start with loading state being true, flip after Yelp results load
-  $scope.isLoading = true;
+
+  // starts out with newSearch boolean set to true
+  // flip to false after a choice is made
+  $scope.newSearch = true;
+  // start with loading state being false, flip to true while Yelp API call runs
+  // flip back to false after yelp results are loaded
+  $scope.isLoading = false;
   
   $scope.exploreResults = [];
   // do a Yelp API call to set locations

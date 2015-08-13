@@ -26,12 +26,65 @@ a {
   height: 55px;
 }
 
+.landing {
+  width: 375px;
+  height: 570px;
+  overflow: hidden;
+}
+
+.landing-icon-left {
+  float: left;
+  margin: 12px 12px 12px 23px;
+  padding: 8px 25px 0px 25px;
+  width: 150px;
+  height: 150px;
+  border: 3px solid black;
+  border-radius: 10px;
+  font-size: 1.9em;
+  text-align: center;
+}
+
+.landing-icon-right {
+  float: left;
+  margin: 12px 23px 12px 12px;
+  padding: 8px 25px 0px 25px;
+  width: 150px;
+  height: 150px;
+  border: 3px solid black;
+  border-radius: 10px;
+  font-size: 1.9em;
+  text-align: center;
+}
+
+.landing-icon {
+  width: 100px;
+  height: 100px;
+}
+
+.landing-instructions {
+  float: left;
+  margin: 12px 26px 0px 23px;
+  padding: 12px 15px;
+  font-size: 1.4em;
+  border: 3px solid #888;
+  border-radius: 10px;
+  height: 175px;
+  width: 325px;
+  color: #888;
+}
+
 .spinner {
   text-align: center;
   width: 375px;
   /*height: 116px;*/
   height: 570px;
   padding-top: 220px;
+}
+
+.explore-wrapper {
+  overflow: hidden;
+  width: 375px;
+  height: 570px;
 }
 
 .explore-image {
@@ -108,12 +161,6 @@ a {
   width: 125px;
   height: 40px;
   overflow: hidden;
-}
-
-.explore-wrapper {
-  overflow: hidden;
-  width: 375px;
-  height: 570px;
 }
 
 /* Auth */
