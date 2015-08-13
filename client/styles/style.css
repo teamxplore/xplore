@@ -152,7 +152,6 @@ a {
 }
 
 .explore-footer {
-  color: #06ACC9;
   padding-top: 5px;
   padding-bottom: 5px;
   float: left;
@@ -161,6 +160,14 @@ a {
   width: 125px;
   height: 40px;
   overflow: hidden;
+}
+
+.disabled {
+  color: #888;
+}
+
+.enabled {
+  color: #06ACC9;
 }
 
 /* Auth */
