@@ -6,9 +6,11 @@ angular.module('uberxplore', [
   'uberxplore.uber',
   'uberxplore.google',
   'uberxplore.geocoords',
+  'uberxplore.uber-modal',
   'ngTouch',
   'ngAnimate',
-  'ui.router'
+  'ui.router',
+  'ui.bootstrap'
 ])
 
 .config(function($stateProvider, $urlRouterProvider) {

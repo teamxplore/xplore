@@ -1,0 +1,14 @@
+<!-- will probably need to use Uber's font !-->
+<div class="uber-title-container">
+  <img class="uber-title" src="/assets/Uber_Logo_White_Background.png">
+</div>
+<div class="product-container" ng-repeat="product in products" ng-click="requestUberRide({{product}})">
+  <div class="product-name">
+    <h3>{{ product.display_name }}</h3>
+  </div>
+  <div class="product-info">
+    <img class="product-image" src="{{ product.image }}">
+    <p>{{ product.pickup_estimate }} mins away</p>
+    <p>€{{ product.low_estimate }} - €{{ product.high_estimate }}</p>
+  </div>
+</div>

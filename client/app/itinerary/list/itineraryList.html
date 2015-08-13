@@ -4,13 +4,13 @@
       ng-class="{selected: selected === $index}">
   <div class="location-info">
     <h2>{{ location.name }}</h2>
-    <!-- {{ location.distance }} -->
+    <h4 class="location-distance">{{ convertDistance(location.distance) }} miles away</p>
   </div>
   <div class="location-options" ng-hide="selected !== $index">
     <div class="remove" ng-click="remove()">
       <span class="glyphicon glyphicon-remove-circle"></span>
     </div>
-    <div class="uber-icon-container" ng-click="openUberOptions()">
+    <div class="uber-icon-container" ng-click="openUberModal()">
       <img class="uber-icon" src="/assets/UBER_API_Badges_1x_78px.png">
     </div>
   </div>
