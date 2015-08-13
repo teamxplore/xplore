@@ -9,39 +9,61 @@ angular.module('uberxplore.itineraryMap', [
   });
 })
 .controller('ItineraryMapController', function($scope, Locations, uiGmapGoogleMapApi, Google) {
-  // Setting the locations to the service will keep it in sync with
-  // all other parts of the app
+
   $scope.locations = Locations;
   $scope.markers = [];
   $scope.map = {
     center: {
-      latitude: 48.8567,
-      longitude: 2.3508
+      // TODO: set this to user current location
+      latitude: 41.9000,
+      longitude: 12.5000
     },
     zoom: 8
   };
 
   uiGmapGoogleMapApi.then(function(maps) {
-    markerSetup(maps);
+    userMarkerSetup();
+    locationMarkersSetup();
+    console.log($scope.markers);
   });
 
   $scope.markerClick = function(gMarker, event, marker) {
-    var location = $scope.locations[marker.id];
+    var location = $scope.locations[marker.id - 1]; // user is index 0
+    console.log('clicked '+location.name);
     // TODO: need to update this to show modal uber ride view
   };
 
-  var markerSetup = function(maps) {
+  var userMarkerSetup = function() {
+    var userMarker = {
+      id: 0,
+      options: {
+        icon: {
+          url: '/assets/user-pin.png',
+          scaledSize: {
+            width: 24,
+            height: 24
+          }
+        }
+      },
+      coords: {
+        // TODO: need to use some factory with updated geolocation
+        latitude: 41.9000,
+        longitude: 12.5000
+      }
+    };
+    $scope.markers.push(userMarker);
+  };
+
+  var locationMarkersSetup = function() {
     $scope.locations.forEach(function(location, index) {
       var marker = {};
-      marker.id = index;
+      marker.id = index + 1; // user is index 0
       marker.options = {
         icon: {
-          url: '/assets/uber-pin.png',
+          url: '/assets/location-pin.png',
           scaledSize: {
-            width: 20,
-            height: 48,
-            widthUnit:'px',
-            heightUnit:'px'
+            width: 24,
+            height: 56
           }
         },
         labelClass:'marker-labels',
