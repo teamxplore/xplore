@@ -6,6 +6,7 @@ var path = require('path');
 var yelp = require('./yelp/yelpHandler.js');
 var utils = require('./yelp/utils.js');
 var uber = require('./uber/uberHandler.js');
+var google = require('./google/googleHandler.js');
 
 var app = express();
 
@@ -68,6 +69,11 @@ uberRouter.get('/requests/details', uber.getRideDetails);
 uberRouter.get('/requests/map', uber.getRideMap);
 uberRouter.get('/requests/receipt', uber.getRideReceipt);
 app.use('/uber', uberRouter);
+
+
+var googleRouter = express.Router();
+googleRouter.get('/geocode', google.geocode);
+app.use('/google', googleRouter);
 
 var port = process.env.PORT || 1337;
 app.listen(port, function () {

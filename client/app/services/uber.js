@@ -1,4 +1,4 @@
-angular.module('uberxplore.services', [])
+angular.module('uberxplore.uber', [])
 .factory('Uber', function($http) {
 
   // var signin = function() {

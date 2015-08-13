@@ -2,7 +2,8 @@ angular.module('uberxplore', [
   'uberxplore.itineraryList',
   'uberxplore.explore',
   'uberxplore.locations',
-  'uberxplore.services',
+  'uberxplore.uber',
+  'uberxplore.google',
   'ngTouch',
   'ui.router'
 ])
