@@ -1,7 +1,7 @@
 <h1 class="map-title">Xplore</h1>
 <a class="list-link" ui-sref="list">List</a>
 <div class="map">
-<ui-gmap-google-map center='map.center' zoom='map.zoom'>
+<ui-gmap-google-map center='map.center' zoom='map.zoom' pan='true'>
   <ui-gmap-markers
     models="markers"
     fit="true"
@@ -12,6 +12,6 @@
 </ui-gmap-google-map>
 </div>
 
-<div class="explore-link-container">
-  <a class="explore-link" ui-sref="explore">Explore</a>
+<div class="map-footer-wrapper">
+  <div class="map-footer"><a ui-sref='explore'>New Search</a></div>
 </div>

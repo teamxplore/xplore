@@ -29,7 +29,7 @@ a {
 .spinner {
   text-align: center;
   width: 375px;
-  /*height: 116px;*/ 
+  /*height: 116px;*/
   height: 570px;
   padding-top: 220px;
 }
@@ -216,7 +216,7 @@ a {
 }
 
 .angular-google-map-container {
-  height: 540px;
+  height: 555px;
   width: 375px;
 }
 
@@ -245,8 +245,28 @@ a {
   border-left: 2px solid #06ACC9;
 }
 
+.map-footer-wrapper {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.map-footer {
+  color: #06ACC9;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  font-size: 1.5em;
+  width: 125px;
+  height: 40px;
+  overflow: hidden;
+  margin: 0 auto;
+  bottom: 2px;
+}
+
 .list-link,
 .map-link {
+  font-size: 1.5em;
   position: absolute;
   right: 0;
   top: 0;
