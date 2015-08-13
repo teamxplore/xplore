@@ -1,9 +1,9 @@
 angular.module('uberxplore.services', [])
 .factory('Uber', function($http) {
 
-  var signin = function() {
-    return $http.get('/uber/auth');
-  };
+  // var signin = function() {
+  //   return $http.get('/uber/auth');
+  // };
 
   var isAuth = function() {
     return $http.get('/uber/isauth');
@@ -115,7 +115,7 @@ angular.module('uberxplore.services', [])
   };
 
   return {
-    signin: signin,
+    // signin: signin,
     isAuth: isAuth,
     getProducts: getProducts,
     getPriceEstimates: getPriceEstimates,
