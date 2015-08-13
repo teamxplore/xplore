@@ -1,8 +1,21 @@
-<h1>Itinerary (List View)</h1>
-<div ng-repeat="item in locations" ng-click="select()">
-  <h3>{{ item.name }}</h3>
+<h1>Xplore</h1>
+<div class="location-container row" ng-repeat="location in locations" ng-click="select($index)"
+      ng-class="{selected: selected === $index}">
+  <div class="location-info">
+    <h2>{{ location.name }}</h2>
+    <!-- {{ location.distance }} -->
+  </div>
+  <div class="location-options" ng-hide="selected !== $index">
+    <div class="remove" ng-click="remove()">
+      <span class="glyphicon glyphicon-remove-circle"></span>
+    </div>
+    <div class="uber-icon-container" ng-click="openUberOptions()">
+      <img class="uber-icon" src="/assets/UBER_API_Badges_1x_78px.png">
+    </div>
+  </div>
 </div>
 
 <!-- Return to Explore state to select more options -->
-<!-- need to reference explore instead of uberxplore.explore -->
-<a ui-sref="explore">Explore</a> 
+<div class="explore-link-container">
+  <a class="explore-link" ui-sref="explore">Explore</a> 
+</div>

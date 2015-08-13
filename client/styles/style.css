@@ -97,3 +97,43 @@ a {
   margin: 0 auto;
   text-align: center;
 }
+
+/* Itinerary List */
+.location-container {
+  padding-left:20px;
+}
+
+.location-info {
+  float: left;
+}
+
+.location-options {
+  float: right;
+  padding-right: 20px;
+  width: 120px;
+  margin-top: 13px;
+}
+
+.glyphicon-remove-circle {
+  float: left;
+  font-size: 3em;
+}
+
+.uber-icon-container{
+  float: right;
+}
+
+.uber-icon {
+  width: 45px;
+}
+
+.selected {
+  background-color: #E6E6E6;
+}
+
+.explore-link-container {
+  width: 100%;
+  position: absolute;
+  bottom: 10px;
+  text-align: center;
+}
