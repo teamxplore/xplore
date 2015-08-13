@@ -24,7 +24,7 @@ angular.module('uberxplore.explore', ['ngTouch', 'ngAnimate'])
 
   // Show next on a swipe right
   $scope.nextEntry = function() {
-    console.log('nextEntry()');
+    // console.log('nextEntry()');
     if ($scope.currentIndex < $scope.exploreResults.length - 1) {
       ++$scope.currentIndex;
     } else {
@@ -34,7 +34,7 @@ angular.module('uberxplore.explore', ['ngTouch', 'ngAnimate'])
 
   // Show previous on a swipe left
   $scope.prevEntry = function() {
-    console.log('prevEntry()');
+    // console.log('prevEntry()');
     if ($scope.currentIndex > 0) {
       --$scope.currentIndex;
     }
@@ -48,7 +48,10 @@ angular.module('uberxplore.explore', ['ngTouch', 'ngAnimate'])
   };
 
   $scope.addToItinerary = function(index) {
-    Locations.push($scope.exploreResults[index]);
+    var item = $scope.exploreResults[index];
+    if (Locations.indexOf(item)) {
+      Locations.push(item);
+    }
     $scope.exploreResults.splice(index, 1);
   };
 
