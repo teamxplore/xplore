@@ -5,6 +5,7 @@ angular.module('uberxplore', [
   'uberxplore.locations',
   'uberxplore.uber',
   'uberxplore.google',
+  'uberxplore.geocoords',
   'ngTouch',
   'ngAnimate',
   'ui.router'

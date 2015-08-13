@@ -1,8 +1,23 @@
 <div ng-controller="ExploreController">
   <div class="heading">Xplore</div>
+
+  <div class="landing" ng-show="newSearch">
+    <div class="landing-icon-left" ng-click="search('landmarks')"><img src="../assets/landmarks.png" class="landing-icon"><br>Landmarks</div>
+    <div class="landing-icon-right" ng-click="search('shopping')"><img src="../assets/shopping.png" class="landing-icon"><br>Shopping</div>
+    <div class="landing-icon-left" ng-click="search('restaurants')"><img src="../assets/restaurants.png" class="landing-icon"><br>Restaurants</div>
+    <div class="landing-icon-right" ng-click="search('bars')"><img src="../assets/bars.png" class="landing-icon"><br>Bars</div>
+    <div class="landing-instructions">
+      <div>- Select a category to search nearby</div>
+      <div>- Navigate the gallery by swiping left and right</div>
+      <div>- Save will add an item to the itinerary</div>
+      <div>- Select Itinerary to see your current list</div>
+      <div>- Select New Search to choose a new category</div>
+    </div>
+  </div>
+
   <div class="spinner" ng-show="isLoading"><img src="../assets/spinner.gif"></div>
 
-  <div class="explore-wrapper" ng-show="!isLoading">
+  <div class="explore-wrapper" ng-show="!isLoading && !newSearch">
     <div ng-repeat="item in exploreResults" ng-swipe-right="prevEntry()" ng-swipe-left="nextEntry()" 
       ng-hide="!isCurrentSlideIndex($index)">
       <div class="explore-entry image"><img ng-src="{{ item.imgUrl }}" alt="Picture" class="explore-image"></div>
@@ -19,9 +34,12 @@
   </div>
 
     <!-- Go to ItineraryList view to check out itinerary so far -->
-<!--   <div class="explore-footer"><span id="remove" ng-click="removeFromView(currentIndex)">Remove</span></div> -->
-  <div class="explore-footer"><span ng-click="">New Search</span></div>
-  <div class="explore-footer"><a ui-sref="list">Itinerary</a></div>
-  <div class="explore-footer"><span ng-click="addToItinerary(currentIndex)">Add</span></div>
+  <!-- real footer only shows when we have results -->
+  <div class="explore-footer" ng-show="!isLoading && !newSearch"><span ng-click="reset()">New Search</span></div>
+  <div class="explore-footer" ng-show="!isLoading && !newSearch"><a ui-sref="list">Itinerary</a></div>
+  <div class="explore-footer" ng-show="!isLoading && !newSearch && !!exploreResults.length"><span ng-click="addToItinerary(currentIndex)">Save</span></div><!-- non-functional footer shows on newSearch and on isLoading -->
+  <div class="explore-footer" ng-show="newSearch || isLoading">New Search</div>
+  <div class="explore-footer" ng-show="newSearch || isLoading">Itinerary</div>
+  <div class="explore-footer" ng-show="newSearch || isLoading">Save</div>
 
 </div>
