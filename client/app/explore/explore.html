@@ -1,20 +1,27 @@
 <div ng-controller="ExploreController">
-  <h1>uberXplore</h1>
+  <div class="heading">Xplore</div>
+  <div class="spinner" ng-show="isLoading"><img src="../assets/spinner.gif"></div>
 
-  <div ng-repeat="item in locations" ng-swipe-right="prevEntry()" ng-swipe-left="nextEntry()" 
-    ng-hide="!isCurrentSlideIndex($index)" ng-class="{'currentIndex': isCurrentSlide($index)}">
-    <!-- <div ng-style="{'background-image':'url({{item.imgUrl}})'}" class="explore-image"><br><br><br><br><br><br></div> -->
-    <div class="explore-entry image"><img ng-src="{{ item.imgUrl }}" alt="Picture" class="explore-image"></div>
-    <div class="explore-entry name">{{ item.name }}</div>
-    <div class="explore-entry reviews">{{ item.reviews }} reviews</div>
-    <div class="explore-entry rating"><img ng-src="{{ item.ratingUrl }}" alt="Picture"></div>
-    <div class="explore-entry address">
-      <span ng-repeat="line in item.address">{{ line }} | </span>
+  <div class="explore-wrapper" ng-show="!isLoading">
+    <div ng-repeat="item in exploreResults" ng-swipe-right="prevEntry()" ng-swipe-left="nextEntry()" 
+      ng-hide="!isCurrentSlideIndex($index)">
+      <div class="explore-entry image"><img ng-src="{{ item.imgUrl }}" alt="Picture" class="explore-image"></div>
+      <div class="explore-entry name">{{ item.name }}</div>
+      <div class="explore-entry reviews">{{ item.reviews }} reviews</div>
+      <div class="explore-entry rating"><img ng-src="{{ item.ratingUrl }}" alt="Picture"></div>
+      <div class="explore-entry distance">{{ convertDistance(item.distance) }} miles away</div>
+      <div class="explore-entry address">
+        <span ng-repeat="line in item.address">{{ line }} | </span>
+      </div>
+      <div class="explore-entry description">{{ item.description }}</div>
+
     </div>
-    <div class="explore-entry description">{{ item.description }}</div>
-
   </div>
 
-  <!-- Go to ItineraryList view to check out itinerary so far -->
-  <p class="text-center"><a ui-sref="list">Itinerary</a></p>
+    <!-- Go to ItineraryList view to check out itinerary so far -->
+<!--   <div class="explore-footer"><span id="remove" ng-click="removeFromView(currentIndex)">Remove</span></div> -->
+  <div class="explore-footer"><span ng-click="">New Search</span></div>
+  <div class="explore-footer"><a ui-sref="list">Itinerary</a></div>
+  <div class="explore-footer"><span ng-click="addToItinerary(currentIndex)">Add</span></div>
+
 </div>

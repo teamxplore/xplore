@@ -16,7 +16,22 @@ body {
 }
 
 a {
-  font-size: 1.5em;
+  color: #06ACC9;
+}
+
+.heading {
+  padding-left: 5px;
+  font-size: 3em;
+  width: 375px;
+  height: 55px;
+}
+
+.spinner {
+  text-align: center;
+  width: 375px;
+  /*height: 116px;*/ 
+  height: 570px;
+  padding-top: 220px;
 }
 
 .explore-image {
@@ -27,31 +42,78 @@ a {
   text-align: center;
   width: 100%;
   font-family: 'Economica';
-  margin: 5px 0px;
+  padding: 0px;
 }
 
 .image {
-  height: 350px;
+  width: 375px;
+  height: 280px;
   overflow: hidden;
 }
 
 .name {
   font-size: 2em;
   font-weight: bold;
+  width: 375px;
+  height: 40px;
+  overflow: hidden;
 }
 
 .description {
   font-size: 1.3em;
   text-align: left;
+  padding-left: 4px;
+  padding-right: 4px;
+  width: 375px;
+  height: 120px;
+  padding-top: 4px;
 }
 
 .reviews {
   font-size: 1.5em;
   font-weight: bold;
+  width: 375px;
+  height: 30px;
+  overflow: hidden;
+}
+
+.rating {
+  width: 375px;
+  height: 20px;
+  overflow: hidden;
+}
+
+.distance {
+  font-size: 1.5em;
+  width: 375px;
+  height: 30px;
+  overflow: hidden;
 }
 
 .address {
   font-size: 1.1em;
+  width: 375px;
+  height: 52px;
+  overflow: hidden;
+  padding-top: 4px;
+}
+
+.explore-footer {
+  color: #06ACC9;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  float: left;
+  text-align: center;
+  font-size: 1.5em;
+  width: 125px;
+  height: 40px;
+  overflow: hidden;
+}
+
+.explore-wrapper {
+  overflow: hidden;
+  width: 375px;
+  height: 570px;
 }
 
 /* Auth */
