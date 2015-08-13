@@ -36,12 +36,15 @@
     <!-- Go to ItineraryList view to check out itinerary so far -->
   <!-- real footer only shows when we have results -->
   <div class="explore-footer enabled" ng-show="!isLoading && !newSearch"><span ng-click="reset()">New Search</span></div>
-  <div class="explore-footer enabled" ng-show="!isLoading && !newSearch && !!Locations.length"><a ui-sref="list">Itinerary</a></div>
-  <div class="explore-footer disabled" ng-show="!isLoading && !newSearch && !Locations.length">Itinerary</div>
-  <div class="explore-footer enabled" ng-show="!isLoading && !newSearch && !!exploreResults.length"><span ng-click="addToItinerary(currentIndex)">Save</span></div><!-- non-functional footer shows on newSearch and on isLoading -->
+  <div class="explore-footer enabled" ng-show="!isLoading && !newSearch"><a ui-sref="list">Itinerary</a></div>
+  <!-- <div class="explore-footer enabled" ng-show="!isLoading && !newSearch && !!Locations.length"><a ui-sref="list">Itinerary</a></div> -->
+  <!-- <div class="explore-footer disabled" ng-show="!isLoading && !newSearch && !Locations.length">Itinerary</div> -->
+  <div class="explore-footer enabled" ng-show="!isLoading && !newSearch && !!exploreResults.length"><span ng-click="addToItinerary(currentIndex)">Save</span></div>
+  <!-- non-functional footer shows on newSearch and on isLoading -->
   <div class="explore-footer disabled" ng-show="newSearch || isLoading">New Search</div>
-  <div class="explore-footer enabled" ng-show="(newSearch || isLoading) && !!Locations.length"><a ui-sref="list">Itinerary</a></div>
-  <div class="explore-footer disabled" ng-show="(newSearch || isLoading) && !Locations.length">Itinerary</div>
+  <div class="explore-footer enabled" ng-show="newSearch || isLoading"><a ui-sref="list">Itinerary</a></div>
+  <!-- <div class="explore-footer enabled" ng-show="(newSearch || isLoading) && !!Locations.length"><a ui-sref="list">Itinerary</a></div> -->
+  <!-- <div class="explore-footer disabled" ng-show="(newSearch || isLoading) && !Locations.length">Itinerary</div> -->
   <div class="explore-footer disabled" ng-show="newSearch || isLoading">Save</div>
 
 </div>
