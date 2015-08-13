@@ -76,7 +76,14 @@ a {
   text-align: center;
   font-size: 1.5em;
 }
-/* Auth */
+
+.result-div {
+  -webkit-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+}
+.result-div.ng-hide {
+  opacity:0;
+}/* Auth */
 
 .auth {
   height: 667px;

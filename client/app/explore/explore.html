@@ -1,9 +1,8 @@
 <div ng-controller="ExploreController">
-  <script src="../animation.js"></script>
   <div class="heading">Xplore</div>
   <div class="spinner" ng-show="isLoading"><img src="../assets/spinner.gif"></div>
   <div ng-repeat="item in exploreResults" ng-swipe-right="prevEntry()" ng-swipe-left="nextEntry()" 
-    ng-hide="!isCurrentSlideIndex($index)" ng-class="{'currentIndex': isCurrentSlide($index)}">
+    ng-hide="!isCurrentSlideIndex($index)" ng-class="{'currentIndex': isCurrentSlide($index)}" class="result-div">
     <!-- <div ng-style="{'background-image':'url({{item.imgUrl}})'}" class="explore-image"><br><br><br><br><br><br></div> -->
     <div class="explore-entry image"><img ng-src="{{ item.imgUrl }}" alt="Picture" class="explore-image"></div>
     <div class="explore-entry name">{{ item.name }}</div>

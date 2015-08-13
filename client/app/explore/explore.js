@@ -1,4 +1,4 @@
-angular.module('uberxplore.explore', ['ngTouch'])
+angular.module('uberxplore.explore', ['ngTouch', 'ngAnimate'])
 
 .controller('ExploreController', function($scope, $http, Locations) {
   // start with loading state being true, flip after Yelp results load
@@ -26,7 +26,7 @@ angular.module('uberxplore.explore', ['ngTouch'])
   $scope.nextEntry = function() {
     console.log('nextEntry()');
     if ($scope.currentIndex < $scope.exploreResults.length - 1) {
-      $scope.currentIndex++;
+      ++$scope.currentIndex;
     } else {
       $scope.currentIndex = 0;
     }
@@ -36,7 +36,7 @@ angular.module('uberxplore.explore', ['ngTouch'])
   $scope.prevEntry = function() {
     console.log('prevEntry()');
     if ($scope.currentIndex > 0) {
-      $scope.currentIndex--;
+      --$scope.currentIndex;
     }
     else {
       $scope.currentIndex = $scope.exploreResults.length - 1;
