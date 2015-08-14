@@ -30,11 +30,13 @@ angular.module('uberxplore.itineraryList', [])
       windowClass: 'uber-modal'
     });
 
-    uberModal.result.then(function() {
+    uberModal.result.then(function(data) {
       console.log('closed');
+      $scope.main.request_id = data.request_id;
+      $scope.main.eta = data.eta;
     }, function() {
       console.log('dismissed');
-    })
+    });
   };
 
   // converts meters from Yelp data to miles with 1 decimal place

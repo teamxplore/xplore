@@ -33,6 +33,7 @@ angular.module('uberxplore.uber-modal', [])
     Uber.requestRide(product.product_id, Coords.lat, Coords.lng, $scope.location.lat, $scope.location.lng)
     .then(function(data) {
       console.log(data);
+      $scope.request_id = data.request_id;
       $scope.request.status = data.status;
       $scope.request.eta = data.eta ? data.eta+' mins' : null;
       $scope.state = 'confirmation';
@@ -47,6 +48,9 @@ angular.module('uberxplore.uber-modal', [])
 
   $scope.close = function() {
     // Can pass data thru here if we want to handle the scheduled ride
-    $modalInstance.close();
+    $modalInstance.close({
+      request_id: $scope.request_id,
+      eta: $scope.request.eta
+    });
   };
 });

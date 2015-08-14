@@ -93,28 +93,36 @@ angular.module('uberxplore.uber', [])
     var params = {
       request_id: requestId
     };
-    return $http.delete('/uber/requests/', {params: params});
+    return $http.delete('/uber/requests/', {params: params}).then(function(response) {
+      return response.data;
+    });
   };
 
   var getRideDetails = function(requestId) {
     var params = {
       request_id: requestId
     };
-    return $http.get('/uber/requests/details', {params: params});
+    return $http.get('/uber/requests/details', {params: params}).then(function(response) {
+      return response.data;
+    });
   };
 
   var getRideMap = function(requestId) {
     var params = {
       request_id: requestId
     };
-    return $http.get('/uber/requests/map', {params: params});
+    return $http.get('/uber/requests/map', {params: params}).then(function(response) {
+      return response.data;
+    });
   };
 
   var getRideReceipt = function(requestId) {
     var params = {
       request_id: requestId
     };
-    return $http.get('/uber/requests/receipt', {params: params});
+    return $http.get('/uber/requests/receipt', {params: params}).then(function(response) {
+      return response.data;
+    });
   };
 
   return {
