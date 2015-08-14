@@ -1,5 +1,4 @@
 angular.module('uberxplore.itineraryList', [])
-
 .controller('ItineraryListController', function($scope, $modal, Locations) {
   // Setting the locations to the service will keep it in sync with
   // all other parts of the app
@@ -10,11 +9,12 @@ angular.module('uberxplore.itineraryList', [])
   $scope.select = function(index) {
     // Slides out selection options such as Request Uber and Delete
     $scope.selected = index;
-  }
+  };
 
   $scope.remove = function() {
-
-  }
+    $scope.locations.splice($scope.selected, 1);
+    $scope.selected = null;
+  };
 
   $scope.openUberModal = function() {
     var uberModal = $modal.open({

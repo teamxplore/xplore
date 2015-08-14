@@ -8,16 +8,15 @@ angular.module('uberxplore.itineraryMap', [
     libraries: 'weather,geometry,visualization'
   });
 })
-.controller('ItineraryMapController', function($scope, Locations, uiGmapGoogleMapApi, Google) {
+.controller('ItineraryMapController', function($scope, $modal, Locations, uiGmapGoogleMapApi, Google, Coords) {
 
   $scope.showMap = false;
   $scope.locations = Locations;
   $scope.markers = [];
   $scope.map = {
     center: {
-      // TODO: set this to user current location
-      latitude: 41.9000,
-      longitude: 12.5000
+      latitude: Coords.lat,
+      longitude: Coords.lng
     },
     zoom: 8
   };
@@ -30,7 +29,29 @@ angular.module('uberxplore.itineraryMap', [
   $scope.markerClick = function(gMarker, event, marker) {
     var location = $scope.locations[marker.id - 1]; // user is index 0
     console.log('clicked '+location.name);
+    openUberModal(location);
     // TODO: need to update this to show modal uber ride view
+  };
+
+  var openUberModal = function(location) {
+    var uberModal = $modal.open({
+      templateUrl: 'app/itinerary/uber-modal/uber-modal.html',
+      controller: 'UberModal',
+      resolve: {
+        // Passes the selected location to the modal
+        // (selected is an index)
+        location: function() {
+          return location;
+        }
+      },
+      windowClass: 'uber-modal'
+    });
+
+    uberModal.result.then(function() {
+      console.log('closed');
+    }, function() {
+      console.log('dismissed');
+    });
   };
 
   var userMarkerSetup = function() {
@@ -46,9 +67,8 @@ angular.module('uberxplore.itineraryMap', [
         }
       },
       coords: {
-        // TODO: need to use some factory with updated geolocation
-        latitude: 41.9000,
-        longitude: 12.5000
+        latitude: Coords.lat,
+        longitude: Coords.lng
       }
     };
     $scope.markers.push(userMarker);

@@ -2,13 +2,24 @@
 <div class="uber-title-container">
   <img class="uber-title" src="/assets/Uber_Logo_White_Background.png">
 </div>
+
+<section ng-show="state==='select'">
 <div class="product-container" ng-repeat="product in products" ng-click="requestUberRide({{product}})">
   <div class="product-name">
     <h3>{{ product.display_name }}</h3>
   </div>
   <div class="product-info">
     <img class="product-image" src="{{ product.image }}">
-    <p>{{ product.pickup_estimate }} mins away</p>
+    <p>{{ product.pickup_estimate }}</p>
     <p>€{{ product.low_estimate }} - €{{ product.high_estimate }}</p>
   </div>
 </div>
+</section>
+
+<section ng-show="state==='confirmation'" class="request-details">
+<div class="heading">Ride requested</div>
+<div class="details" ng-repeat="(key, value) in request">
+  <p>{{ key }}: {{ value }}</p>
+</div>
+<div class="ok" ng-click="close()">ok</div>
+</section>

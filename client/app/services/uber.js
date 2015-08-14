@@ -12,24 +12,26 @@ angular.module('uberxplore.uber', [])
   var getProducts = function(latitude, longitude) {
     var params = {
       // --- uncomment these when ready
-      // latitude: latitude,
-      // longitude: longitude
+      latitude: latitude,
+      longitude: longitude
       // Rome coords
-      latitude: 41.902783,
-      longitude: 12.496366,
+      // latitude: 41.902783,
+      // longitude: 12.496366,
     };
 
-    return $http.get('/uber/products', {params: params});
+    return $http.get('/uber/products', {params: params}).then(function(response) {
+      return response.data;
+    });
   };
 
   var getPriceEstimates = function(startLatitude, startLongitude, endLatitude, endLongitude) {
     var params = {
       // --- uncomment these when ready
-      // start_latitude: startLatitude,
-      // start_longitude: startLongitude,
+      start_latitude: startLatitude,
+      start_longitude: startLongitude,
       // Rome coords
-      start_latitude: 41.902783,
-      start_longitude: 12.496366,
+      // start_latitude: 41.902783,
+      // start_longitude: 12.496366,
       end_latitude: endLatitude,
       end_longitude: endLongitude
     };
@@ -40,11 +42,11 @@ angular.module('uberxplore.uber', [])
   var getTimeEstimates = function(startLatitude, startLongitude, endLatitude, endLongitude) {
     var params = {
       // --- uncomment these when ready
-      // start_latitude: startLatitude,
-      // start_longitude: startLongitude,
+      start_latitude: startLatitude,
+      start_longitude: startLongitude,
       // Rome coords
-      start_latitude: 41.902783,
-      start_longitude: 12.496366,
+      // start_latitude: 41.902783,
+      // start_longitude: 12.496366,
       end_latitude: endLatitude,
       end_longitude: endLongitude
     };
@@ -55,32 +57,36 @@ angular.module('uberxplore.uber', [])
     var params = {
       // --- uncomment these when ready
       product_id: productId,
-      // start_latitude: startLatitude,
-      // start_longitude: startLongitude,
+      start_latitude: startLatitude,
+      start_longitude: startLongitude,
       //product_id: 'c9b74e41-816c-4df8-8290-41fc1df9476c', // need to get this from getProducts
       // Rome coords
-      start_latitude: 41.902783,
-      start_longitude: 12.496366,
+      // start_latitude: 41.902783,
+      // start_longitude: 12.496366,
       end_latitude: endLatitude,
       end_longitude: endLongitude
     };
-    return $http.post('/uber/requests/estimate', {params: params});
+    return $http.post('/uber/requests/estimate', {params: params}).then(function(response) {
+      return response.data;
+    });
   };
 
   var requestRide = function(productId, startLatitude, startLongitude, endLatitude, endLongitude) {
     var params = {
       // --- uncomment these when ready
       product_id: productId,
-      // start_latitude: startLatitude,
-      // start_longitude: startLongitude,
+      start_latitude: startLatitude,
+      start_longitude: startLongitude,
       //product_id: 'c9b74e41-816c-4df8-8290-41fc1df9476c', // need to get this from getProducts
       // Rome coords
-      start_latitude: 41.902783,
-      start_longitude: 12.496366,
+      // start_latitude: 41.902783,
+      // start_longitude: 12.496366,
       end_latitude: endLatitude,
       end_longitude: endLongitude
     };
-    return $http.post('/uber/requests', {params: params});
+    return $http.post('/uber/requests', {params: params}).then(function(response) {
+      return response.data;
+    });
   };
 
   var cancelRide = function(requestId) {

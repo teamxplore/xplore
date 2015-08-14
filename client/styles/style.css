@@ -335,10 +335,10 @@ a {
 
 /* Uber Modal */
 .uber-modal .modal-content {
-  min-height: 520px;
+  /*min-height: 520px;*/
   /* Format the modal window to fit within the screen */
-  margin-top: 75px;
-  margin-right: 17px;
+  margin: 75px 10px 0 10px;
+  padding: 0 10px;
 }
 
 .uber-title-container {
@@ -362,4 +362,30 @@ a {
   margin-right: 10px;
   margin-top: 10px;
   text-align: center;;
+}
+
+.request-details {
+  text-align: center;
+}
+
+.request-details .heading {
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.request-details .details {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.request-details .ok {
+  font-size: 1.5em;
+  display: inline-block;
+  margin: 40px auto;
+  padding: 8px 32px;
+  color: #06ACC9;
+  border: 1px solid #06ACC9;
+  border-radius: 6px;
 }
