@@ -20,6 +20,7 @@ a {
 }
 
 .heading {
+  text-align: center;
   padding-left: 5px;
   font-size: 3em;
   width: 375px;
@@ -214,7 +215,59 @@ a {
   text-align: center;
 }
 
+/* Itinerary */
+
+.it-heading {
+  text-align: center;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  padding-left: 5px;
+  font-size: 3em;
+  width: 375px;
+  height: 55px;
+  border-bottom: 1px solid #eee;
+}
+
+.it-footer-wrapper {
+  border-top: 1px solid #eee;
+  background-color: white;
+  z-index: 2;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.it-footer {
+  box-sizing: border-box;
+  color: #06ACC9;
+  text-align: center;
+  height: 40px;
+}
+
+.it-footer div {
+  display: inline-block;
+  width: 125px;
+  height: 40px;
+
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  font-size: 1.5em;
+  overflow: hidden;
+}
+
+
 /* Itinerary List */
+.location-list {
+  position: relative;
+  top: 55px;
+  height: 572px;
+  overflow: scroll;
+}
+
 .location-container {
   padding-left:20px;
 }
@@ -251,85 +304,34 @@ a {
   background-color: #E6E6E6;
 }
 
-.explore-link-container {
-  width: 100%;
-  position: absolute;
-  bottom: 10px;
+.tip {
+  padding: 4px;
+  font-size: 2em;
+  color: #ccc;
   text-align: center;
+}
+
+.tip p {
+  margin-top: 20px;
+}
+
+.tip .smiley {
+  font-size: 3em;
 }
 
 /* Itinerary Map */
 
-.map-title {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-}
-
 .map {
   position: absolute;
-  top: 70px;
+  top: 55px;
   left: 0;
 }
 
 .angular-google-map-container {
-  height: 555px;
+  height: 572px;
   width: 375px;
 }
 
-.map-link-container {
-  box-sizing: border-box;
-  width: 100%;
-  position: absolute;
-  height: 47px;
-  bottom: 0;
-  border-top: 2px solid #06ACC9;
-}
-
-.map-link-container a {
-  text-align: center;
-  line-height: 2;
-  box-sizing: border-box;
-  display: inline-block;
-  height: 100%;
-  width: 49.5%;
-  margin: 0;
-  padding: 0 20px;
-  background-color: white;
-}
-
-.map-link-container a:last-child {
-  border-left: 2px solid #06ACC9;
-}
-
-.map-footer-wrapper {
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-}
-
-.map-footer {
-  color: #06ACC9;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  text-align: center;
-  font-size: 1.5em;
-  width: 125px;
-  height: 40px;
-  overflow: hidden;
-  margin: 0 auto;
-  bottom: 2px;
-}
-
-.list-link,
-.map-link {
-  font-size: 1.5em;
-  position: absolute;
-  right: 0;
-  top: 0;
-  margin: 20px;
-}
 
 /* Uber Modal */
 .uber-modal .modal-content {

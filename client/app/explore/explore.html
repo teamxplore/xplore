@@ -1,5 +1,5 @@
 <div ng-controller="ExploreController">
-  <div class="heading">Xplore</div>
+  <div class="heading">xplore</div>
 
   <div class="landing" ng-show="newSearch">
     <div class="landing-icon-left" ng-click="search('landmarks')"><img src="../assets/landmarks.png" class="landing-icon"><br>Landmarks</div>
@@ -18,7 +18,7 @@
   <div class="spinner" ng-show="isLoading"><img src="../assets/spinner.gif"></div>
 
   <div class="explore-wrapper" ng-show="!isLoading && !newSearch">
-    <div ng-repeat="item in exploreResults" ng-swipe-right="prevEntry()" ng-swipe-left="nextEntry()" 
+    <div ng-repeat="item in exploreResults" ng-swipe-right="prevEntry()" ng-swipe-left="nextEntry()"
       ng-hide="!isCurrentSlideIndex($index)">
       <div class="explore-entry image"><img ng-src="{{ item.imgUrl }}" alt="Picture" class="explore-image"></div>
       <div class="explore-entry name">{{ item.name }}</div>

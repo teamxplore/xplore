@@ -1,5 +1,5 @@
-<h1 class="map-title">Xplore</h1>
-<a class="list-link" ui-sref="list">List</a>
+<div class="it-heading">xplore</div>
+
 <div ng-if="showMap" class="map">
 <ui-gmap-google-map
   center="map.center"
@@ -15,6 +15,9 @@
 </ui-gmap-google-map>
 </div>
 
-<div class="map-footer-wrapper">
-  <div class="map-footer"><a ui-sref='explore'>New Search</a></div>
+<div class="it-footer-wrapper">
+  <div class="it-footer">
+    <div><a ui-sref='explore'>Explore</a></div>
+    <div><a ui-sref="list">List</a></div>
+  </div>
 </div>
