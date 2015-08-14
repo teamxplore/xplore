@@ -9,12 +9,12 @@
     <link rel="stylesheet" type="text/css" href="styles/style.css">
     <link rel="stylesheet" type="text/css" href="styles/animate.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="lib/angular/angular.js"></script>
   </head>
   <body ng-controller="MainCtrl">
     <div ng-show="!!main.request_id" class="ride-status ng-cloak">Your Uber is arriving in {{ main.eta }} mins</div>
     <div ui-view></div>
 
-    <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-touch/angular-touch.js"></script>
     <script src="lib/angular-animate/angular-animate.js"></script>
     <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
