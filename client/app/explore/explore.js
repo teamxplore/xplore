@@ -11,7 +11,7 @@ angular.module('uberxplore.explore', ['ngTouch', 'ngAnimate', 'uberxplore.geocoo
 
   // scope variable for Locations
   $scope.Locations = Locations;
-  
+
   $scope.exploreResults = [];
 
   $scope.search = function(searchType) {
@@ -28,23 +28,24 @@ angular.module('uberxplore.explore', ['ngTouch', 'ngAnimate', 'uberxplore.geocoo
       // this is the real version
       // Coords.lat = pos.coords.latitude;
       // Coords.lng = pos.coords.longitude;
+
+      // see if it set our object correctly
+      console.log(Coords);
+      // make http POST request to server with geolocation
+      $http.post('/search', {term: searchType, limit: 20, sort: 2, ll: Coords.lat+','+Coords.lng}) // our version with hardcoded coordinates for Rome, Italy
+      // $http.post('/search', {term: searchType, limit: 20, sort: 2, ll: geoCoords})  This is the real version with actual geoCoords
+        .success(function(data) {
+          // $scope.isLoading = false;
+          console.log('success', data);
+          $scope.exploreResults = $scope.filterSaved(data);
+        })
+        .catch(function(err) {
+          console.log('error',err);
+        })
+        .finally(function() {
+          $scope.isLoading = false;
+        });
     });
-    // see if it set our object correctly
-    console.log(Coords);
-    // make http POST request to server with geolocation
-    $http.post('/search', {term: searchType, limit: 20, sort: 2, ll: '41.902783,12.496366'}) // our version with hardcoded coordinates for Rome, Italy
-    // $http.post('/search', {term: searchType, limit: 20, sort: 2, ll: geoCoords})  This is the real version with actual geoCoords
-      .success(function(data) {
-        // $scope.isLoading = false;
-        console.log('success', data);
-        $scope.exploreResults = $scope.filterSaved(data);
-      })
-      .catch(function(err) {
-        console.log('error',err);
-      })
-      .finally(function() {
-        $scope.isLoading = false;
-      });
   };
 
   $scope.currentIndex = 0;
