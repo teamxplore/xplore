@@ -360,9 +360,16 @@ a {
 .uber-title {
   width: 300px;
 }
+
+.products-list {
+  max-height: 400px;
+  overflow: scroll;
+}
+
 .product-container {
   overflow: auto;
   margin-top: 10px;
+  border-bottom: 1px solid #eee;
 }
 
 .product-name {
