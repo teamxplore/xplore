@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body ng-controller="MainCtrl">
-    <div ng-show="!!main.request_id" class="ride-status">Your Uber is arriving in {{ main.eta }} mins</div>
+    <div ng-show="!!main.request_id" class="ride-status ng-cloak">Your Uber is arriving in {{ main.eta }} mins</div>
     <div ui-view></div>
 
     <script src="lib/angular/angular.js"></script>

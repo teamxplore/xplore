@@ -19,12 +19,10 @@ angular.module('uberxplore.explore', ['ngTouch', 'ngAnimate', 'uberxplore.geocoo
     $scope.newSearch = false;
     $scope.isLoading = true;
     // get geoLocation as a string and save coords into shared Coords factory
-    var geoCoords;
     navigator.geolocation.getCurrentPosition(function(pos) {
-      geoCoords = pos.coords.latitude + ',' + pos.coords.longitude;
       // this hardcodes our shared Coords as Rome, Italy
-      Coords.lat = 41.902783;
-      Coords.lng = 12.496366;
+      Coords.lat = 37.7833;
+      Coords.lng = -122.4167;
       // this is the real version
       // Coords.lat = pos.coords.latitude;
       // Coords.lng = pos.coords.longitude;

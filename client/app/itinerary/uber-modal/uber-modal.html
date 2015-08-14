@@ -3,7 +3,7 @@
   <img class="uber-title" src="/assets/Uber_Logo_White_Background.png">
 </div>
 
-<section ng-show="state==='select'">
+<section ng-show="state==='select'" class="products-list">
 <div class="product-container" ng-repeat="product in products" ng-click="requestUberRide({{product}})">
   <div class="product-name">
     <h3>{{ product.display_name }}</h3>
