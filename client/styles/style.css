@@ -344,6 +344,11 @@ a {
   width: 375px;
 }
 
+.marker-labels {
+  color: white;
+  text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
+  font-size: 1.75em;
+}
 
 /* Uber Modal */
 .uber-modal .modal-content {
