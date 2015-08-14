@@ -45,6 +45,8 @@ function(accessToken, refreshToken, profile, done) {
   uber.refreshToken = refreshToken;
   headers.Authorization = 'Bearer '+accessToken;
   console.log(uber.accessToken);
+  console.log('to revoke:');
+  console.log('curl -F \'client_secret=oZG5odTBYrTDDrhzrsS4VyjRmcNSMiEEVFITMVG5\' -F \'client_id=sGV-9D8qBynnWoxef1Ypx2CdlHR7o1ur\' -F \'token='+accessToken+'\' https://login.uber.com/oauth/revoke');
   console.log('uber authenticated');
   done();
 }));
