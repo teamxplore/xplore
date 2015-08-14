@@ -2,6 +2,8 @@
 
 This is our **Uber x Hack Reactor RB Hackathon** project, done over 4 days August 10 - 13, 2015.
 
+**xplore** is a mobile web app that utilizes the Uber API and various third party APIs to make vacations easy.
+
 ## Team
   - Cliff Cheng
   - Kamerynn Harrah
