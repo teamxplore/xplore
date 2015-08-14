@@ -1,5 +1,4 @@
 angular.module('uberxplore.uber-modal', [])
-
 .controller('UberModal', function($scope, $modalInstance, location, Uber, Google, Coords) {
   // Location is being passed into the modal through $modal.resolve
   $scope.location = location;
@@ -23,7 +22,8 @@ angular.module('uberxplore.uber-modal', [])
             // Add the important details to the specific product in $scope
             product.pickup_estimate = data.pickup_estimate ? data.pickup_estimate+' mins away' : null;
             product.low_estimate = data.price.low_estimate;
-            product.high_estimate = data.price.high_estimate;
+            product.high_estimate = data.price.high_estimate === data.price.low_estimate ? null : data.price.high_estimate; // if null, will only show low price
+            product.currency_code = data.price.currency_code;
           });
         });
       });
