@@ -92,7 +92,7 @@ angular.module('uberxplore.itineraryMap', [
           }
         },
         labelClass:'marker-labels',
-        labelAnchor:'10 64',
+        labelAnchor:'0 72',
         labelContent: location.name
       };
       // Probably should do this when a location is first added to the list by the user
