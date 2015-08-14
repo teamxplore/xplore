@@ -14,5 +14,8 @@
     "querystring": "^0.2.0",
     "request": "^2.60.0",
     "yelp": "^0.2.0"
+  },
+  "scripts": {
+    "start": "node server/server.js"
   }
 }
