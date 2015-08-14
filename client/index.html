@@ -10,7 +10,8 @@
     <link rel="stylesheet" type="text/css" href="styles/animate.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-  <body>
+  <body ng-controller="MainCtrl">
+    <div ng-show="!!main.request_id" class="ride-status">Your Uber is arriving in {{ main.eta }} mins</div>
     <div ui-view></div>
 
     <script src="lib/angular/angular.js"></script>
@@ -21,9 +22,9 @@
     <script src='lib/angular-google-maps/dist/angular-google-maps.min.js'></script>
     <script src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="app/explore/explore.js"></script>
+    <script src="app/itinerary/uber-modal/uber-modal.js"></script>
     <script src="app/itinerary/list/itineraryList.js"></script>
     <script src="app/itinerary/map/itineraryMap.js"></script>
-    <script src="app/itinerary/uber-modal/uber-modal.js"></script>
     <script src="app/services/locations.js"></script>
     <script src="app/services/geocoordinates.js"></script>
     <script src="app/services/uber.js"></script>

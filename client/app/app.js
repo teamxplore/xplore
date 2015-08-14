@@ -38,6 +38,18 @@ angular.module('uberxplore', [
       controller: 'ItineraryMapController'
     });
 })
+.controller('MainCtrl', function($scope, Uber) {
+  $scope.main = {};
+
+  setInterval(function() {
+    if( $scope.main.request_id ) {
+      console.log('getting status...');
+      Uber.getRideDetails($scope.main.request_id).then(function(data) {
+        $scope.main.eta = data.eta;
+      });
+    }
+  }, 1000);
+})
 .run(function ($rootScope, $window, $state, Uber) {
   $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
     if( toState.name !== 'auth') {
