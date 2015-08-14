@@ -16,6 +16,7 @@
     "angular-touch": "~1.4.3",
     "angular-animate": "~1.4.3",
     "angular-google-maps": "~2.1.5",
-    "angular-bootstrap": "~0.13.3"
+    "angular-bootstrap": "~0.13.3",
+    "iso-currency": "~0.1.6"
   }
 }

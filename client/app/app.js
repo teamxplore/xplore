@@ -10,7 +10,8 @@ angular.module('uberxplore', [
   'ngTouch',
   'ngAnimate',
   'ui.router',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'isoCurrency'
 ])
 
 .config(function($stateProvider, $urlRouterProvider) {

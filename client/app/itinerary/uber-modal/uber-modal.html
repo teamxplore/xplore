@@ -11,7 +11,7 @@
   <div class="product-info">
     <img class="product-image" src="{{ product.image }}">
     <p>{{ product.pickup_estimate }}</p>
-    <p>€{{ product.low_estimate }} - €{{ product.high_estimate }}</p>
+    <p>{{ product.low_estimate | isoCurrency:product.currency_code }} - {{ product.high_estimate | isoCurrency:product.currency_code }}</p>
   </div>
 </div>
 </section>
